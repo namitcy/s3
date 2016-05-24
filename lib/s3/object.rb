@@ -238,6 +238,7 @@ module S3
       headers[:content_encoding] = @content_encoding if @content_encoding
       headers[:content_disposition] = @content_disposition if @content_disposition
       headers[:cache_control] = @cache_control if @cache_control
+      @metadata.each{|k,v| headers[k] = v} if @metadata && @metadata.present?
       headers
     end
 
